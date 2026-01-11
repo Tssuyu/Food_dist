@@ -58,13 +58,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function getZero(num){
-    if (num >= 0 && num < 10) { 
-        return '0' + num;
+  function getZero(num) {
+    if (num >= 0 && num < 10) {
+      return '0' + num;
     } else {
-        return num;
+      return num;
     }
-}
+  }
 
   function setClock(selector, endtime) {
     const timer = document.querySelector(selector),
@@ -136,11 +136,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const modalTimerID = setTimeout(openModal, 30000000);
 
   function showModalAtScrollEnd() {
-    if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) 
-      {
-        openModal();
-        window.removeEventListener('scroll', showModalAtScrollEnd);
-      }
+    if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
+      openModal();
+      window.removeEventListener('scroll', showModalAtScrollEnd);
+    }
   }
 
   window.addEventListener('scroll', showModalAtScrollEnd);
@@ -172,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
       } else {
         this.classes.forEach(className => element.classList.add(className));
       }
-      
+
       element.innerHTML = `
         <img src=${this.src} alt=${this.alt}>
         <h3 class="menu__item-subtitle">${this.title}</h3>
@@ -213,4 +212,54 @@ window.addEventListener('DOMContentLoaded', () => {
     21,
     '.menu .container'
   ).render();
+
+  // Forms
+
+  const forms = document.querySelectorAll('form'),
+        message = {
+          loading: 'Загрузка...',
+          success: 'Спасибо! Скоро мы с вами свяжемся.',
+          failure: 'Что-то пошло не так...'
+        }
+
+  forms.forEach(form => {
+    postData(form);
+  });
+
+  function postData(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const statusMessage = document.createElement('div');
+      statusMessage.classList.add('status');
+      statusMessage.textContent = message.loading;
+      form.append(statusMessage);
+
+      const formData = new FormData(form);
+      const request = new XMLHttpRequest();
+
+      request.open('POST', 'server.php');
+      request.setRequestHeader('Content-type', 'application/json, charset=utf-8');
+      
+      const object = {};
+      formData.forEach(function(key, value) {
+        object[key] = value;
+      });
+
+      request.send(JSON.stringify(object));
+
+      request.addEventListener('load', () => {
+        if (request.status === 200) {
+          console.log(request.response);
+          statusMessage.textContent = message.success;
+          form.reset();
+          setTimeout(() => {
+            statusMessage.remove();
+          }, 3000);
+        } else {
+          statusMessage.textContent = message.failure;
+        }
+      })
+    });
+  }
 });
