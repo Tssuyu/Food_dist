@@ -284,4 +284,9 @@ window.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }, 4000)
   }
+
+  fetch('/api/menu')
+  .then(data => data.json())
+  .then(res => console.log(res));
+
 });

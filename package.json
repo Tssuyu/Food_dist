@@ -1,0 +1,30 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "food project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "json-server --watch db.json --routes routes.json --port 3002",
+    "bs": "browser-sync start --config bs-config.js",
+    "dev": "concurrently \"npm run api\" \"npm run bs\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tssuyu/Food_dist.git"
+  },
+  "keywords": [
+    "food"
+  ],
+  "author": "Tssuyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tssuyu/Food_dist/issues"
+  },
+  "homepage": "https://github.com/Tssuyu/Food_dist#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "http-proxy-middleware": "^3.0.5",
+    "json-server": "^0.17.4"
+  }
+}
