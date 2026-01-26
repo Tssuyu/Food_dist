@@ -1,8 +1,11 @@
 // bs-config.js
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const os = require("os");
 
 module.exports = {
-  proxy: "http://food", // твой сайт через OSPanel
+  proxy: os.platform() === "win32"
+    ? "http://food"
+    : "http://localhost:8888/Food_dist/", // твой сайт через OSPanel/MAMP
   files: [
     "**/*.php",
     "**/*.css",
