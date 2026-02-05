@@ -10,8 +10,7 @@ module.exports = {
     "**/*.php",
     "**/*.css",
     "**/*.js",
-    "**/*.html",
-    "db.json"
+    "**/*.html"
   ],
   middleware: function (req, res, next) {
     // проксируем все запросы к /api на json-server
