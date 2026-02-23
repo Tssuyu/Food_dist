@@ -22,11 +22,39 @@
       "price": 21
     }
   ],
+  "slides": [
+    {
+      "img": "img/slider/pepper.jpg",
+      "altimg": "pepper"
+    },
+        {
+      "img": "img/slider/food-12.jpg",
+      "altimg": "food"
+    },
+        {
+      "img": "img/slider/olive-oil.jpg",
+      "altimg": "oil"
+    },
+        {
+      "img": "iimg/slider/paprika.jpg",
+      "altimg": "paprika"
+    }
+  ],
   "requests": [
     {
       "name": "1234",
       "phone": "asdf",
       "id": 1
+    },
+    {
+      "name": "asdf",
+      "phone": "1234",
+      "id": 2
+    },
+    {
+      "name": "asdf",
+      "phone": "1234",
+      "id": 3
     }
   ]
 }
