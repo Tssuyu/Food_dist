@@ -8,6 +8,9 @@
 ._*
 .DS_Store
 
+#DB files
+db.json
+
 # testing
 /coverage
 

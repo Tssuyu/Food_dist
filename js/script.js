@@ -99,7 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Modal
 
   const modalOpenBtns = document.querySelectorAll('[data-modal]'),
-        modalWindow = document.querySelector('.modal');
+    modalWindow = document.querySelector('.modal');
 
   function closeModal() {
     modalWindow.classList.add('hide');
@@ -183,35 +183,25 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  async function getResource (url) {
-    let res = await fetch(url);
-
-    if (!res.ok) {
-      throw new Error(`Couldn't fetch ${url}, status: ${res.status}`);
-    }
-
-    return await res.json();
-  }
-
-  getResource('http://localhost:3002/menu')
-  .then(data => {
-    data.forEach(({img, altimg, title, descr, price}) => {
-      new MenuCard(img, altimg, title, descr, price, '.menu .container').render()
-    })
-  })
+  axios.get('http://localhost:3002/menu')
+    .then(data => {
+      data.data.forEach(({ img, altimg, title, descr, price }) => {
+        new MenuCard(img, altimg, title, descr, price, '.menu .container').render()
+      })
+    });
 
   // Forms
 
   const forms = document.querySelectorAll('form'),
-        message = {
-          loading: 'img/form/spinner.svg',
-          success: 'Спасибо! Скоро мы с вами свяжемся.',
-          failure: 'Что-то пошло не так...'
-        }
+    message = {
+      loading: 'img/form/spinner.svg',
+      success: 'Спасибо! Скоро мы с вами свяжемся.',
+      failure: 'Что-то пошло не так...'
+    }
 
   forms.forEach(form => {
     bindPostData(form);
-  });      
+  });
 
   const postData = async (url, data) => {
     const res = await fetch(url, {
@@ -237,21 +227,18 @@ window.addEventListener('DOMContentLoaded', () => {
       form.insertAdjacentElement('afterend', statusMessage);
 
       const formData = new FormData(form);
-      const object = {};
-      formData.forEach(function(value, key) {
-        object[key] = value;
-      });
+      const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-      postData('http://localhost:3002/requests', JSON.stringify(object))
-      .then(data => {
-        console.log(data);
-        showThanksModal(message.success);
-        statusMessage.remove();
-      }).catch(() => {
-        showThanksModal(message.failure);
-      }).finally(() => {
-        form.reset();
-      })
+      postData('http://localhost:3002/requests', json)
+        .then(data => {
+          console.log(data);
+          showThanksModal(message.success);
+          statusMessage.remove();
+        }).catch(() => {
+          showThanksModal(message.failure);
+        }).finally(() => {
+          form.reset();
+        })
     });
   }
 
