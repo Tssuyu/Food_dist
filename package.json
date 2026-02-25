@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Tssuyu/Food_dist#readme",
   "devDependencies": {
+    "browser-sync": "^3.0.4",
     "concurrently": "^9.2.1",
     "http-proxy-middleware": "^3.0.5",
     "json-server": "^0.17.4"
