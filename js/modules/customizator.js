@@ -62,8 +62,8 @@ export default class Customizator {
           justify-content: space-around;
           align-items: center;
           position: fixed;
-          top: 10px;
-          right: 0;
+          bottom: 10px;
+          left: 10px;
           border: 1px solid rgba(0,0,0, .2);
           box-shadow: 0 0 20px rgba(0,0,0, .5);
           width: 300px;

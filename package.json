@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "api": "json-server --watch db.json --routes routes.json --port 3002",
     "bs": "browser-sync start --config bs-config.js",
-    "dev": "concurrently \"npm run api\" \"npm run bs\""
+    "dev": "concurrently \"npm run api\" \"npm run bs\" \"npm run webpack\"",
+    "webpack": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,9 @@
     "browser-sync": "^3.0.4",
     "concurrently": "^9.2.1",
     "http-proxy-middleware": "^3.0.5",
-    "json-server": "^0.17.4"
+    "json-server": "^0.17.4",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-server": "^5.2.3"
   }
 }

@@ -9,7 +9,7 @@ module.exports = {
   files: [
     "**/*.php",
     "**/*.css",
-    "**/*.js",
+    "dist/*.js",
     "**/*.html"
   ],
   middleware: function (req, res, next) {
