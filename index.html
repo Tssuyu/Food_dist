@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" href="css/cookieConsent.css">
 </head>
 
 <body>
@@ -166,7 +168,8 @@
                     <div class="calculating__choose calculating__choose_medium">
                         <input type="text" id="height" placeholder="Введите рост (см)" class="calculating__choose-item">
                         <input type="text" id="weight" placeholder="Введите вес (кг)" class="calculating__choose-item">
-                        <input type="text" id="age" placeholder="Введите возраст (лет)" class="calculating__choose-item">
+                        <input type="text" id="age" placeholder="Введите возраст (лет)"
+                            class="calculating__choose-item">
                     </div>
 
                     <div class="calculating__subtitle">
@@ -174,7 +177,8 @@
                     </div>
                     <div class="calculating__choose calculating__choose_big">
                         <div data-ratio="1.2" id="low" class="calculating__choose-item">Низкая активность </div>
-                        <div data-ratio="1.375" id="small" class="calculating__choose-item calculating__choose-item_active">Невысокая
+                        <div data-ratio="1.375" id="small"
+                            class="calculating__choose-item calculating__choose-item_active">Невысокая
                             активность</div>
                         <div data-ratio="1.55" id="medium" class="calculating__choose-item">Умеренная активность</div>
                         <div data-ratio="1.725" id="high" class="calculating__choose-item">Высокая активность</div>
@@ -199,10 +203,10 @@
         <div class="menu">
             <h2 class="title">Наше меню на день</h2>
 
-        <div class="menu__field">
-            <div class="container"></div>
+            <div class="menu__field">
+                <div class="container"></div>
+            </div>
         </div>
-    </div>
 
         <div class="order">
             <div class="container">
@@ -273,21 +277,32 @@
             </div>
         </footer>
 
-    <div class="modal">
-        <div class="modal__dialog">
-            <div class="modal__content">
-                <form action="#">
-                    <div data-close class="modal__close">&times;</div>
-                    <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
-                    <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
-                    <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
-                    <button class="btn btn_dark btn_min">Перезвонить мне</button>
-                </form>
+        <div class="modal">
+            <div class="modal__dialog">
+                <div class="modal__content">
+                    <form action="#">
+                        <div data-close class="modal__close">&times;</div>
+                        <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
+                        <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
+                        <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
+                        <button class="btn btn_dark btn_min">Перезвонить мне</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js" integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="dist/bundle.js"></script>
+        <div class="popup">
+            <div class="container">
+                I accept that my cookies will be used!
+                <button data-cancel class="btn_cookie">Cancel</button>
+                <button data-confirm class="btn_cookie">Accept</button>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
+            integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="dist/bundle.js"></script>
+        <script src="js/services/cookieConsent.js"></script>
 </body>
 
 </html>
