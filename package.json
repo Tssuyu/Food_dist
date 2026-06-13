@@ -19,17 +19,29 @@
   ],
   "author": "Tssuyu",
   "license": "ISC",
+  "browserslist": [
+    "> 1%"
+  ],
   "bugs": {
     "url": "https://github.com/Tssuyu/Food_dist/issues"
   },
   "homepage": "https://github.com/Tssuyu/Food_dist#readme",
   "devDependencies": {
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "babel-loader": "^10.1.1",
     "browser-sync": "^3.0.4",
     "concurrently": "^9.2.1",
+    "core-js": "^3.49.0",
     "http-proxy-middleware": "^3.0.5",
     "json-server": "^0.17.4",
     "webpack": "^5.106.2",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "jquery": "^4.0.0"
   }
 }

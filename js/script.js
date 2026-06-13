@@ -1,3 +1,4 @@
+import 'jquery';
 import Customizator from "./modules/customizator.js";
 import modal from "./modules/modal";
 import timer from "./modules/timer";
